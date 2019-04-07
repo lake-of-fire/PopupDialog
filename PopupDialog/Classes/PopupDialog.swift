@@ -27,11 +27,11 @@ import Foundation
 import UIKit
 
 @objc public protocol PopupDialogDelegate {
-    func popupDialogWillAppear(_ popupDialog: PopupDialog)
-    func popupDialogDidAppear(_ popupDialog: PopupDialog)
-    func popupDialogWillDisappear(_ popupDialog: PopupDialog)
-    func popupDialogDidDisappear(_ popupDialog: PopupDialog)
-    func popupDialogCompleted(_ popupDialog: PopupDialog)
+    @objc optional func popupDialogWillAppear(_ popupDialog: PopupDialog)
+    @objc optional func popupDialogDidAppear(_ popupDialog: PopupDialog)
+    @objc optional func popupDialogWillDisappear(_ popupDialog: PopupDialog)
+    @objc optional func popupDialogDidDisappear(_ popupDialog: PopupDialog)
+    @objc optional func popupDialogCompleted(_ popupDialog: PopupDialog)
 }
 
 /// Creates a Popup dialog similar to UIAlertController
@@ -205,7 +205,7 @@ final public class PopupDialog: UIViewController {
         guard !initialized else { return }
         appendButtons()
         initialized = true
-        delegate?.popupDialogWillAppear(self)
+        delegate?.popupDialogWillAppear?(self)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -214,23 +214,23 @@ final public class PopupDialog: UIViewController {
         UIView.animate(withDuration: 0.15) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
-        delegate?.popupDialogDidAppear(self)
+        delegate?.popupDialogDidAppear?(self)
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         removeObservers()
-        delegate?.popupDialogWillDisappear(self)
+        delegate?.popupDialogWillDisappear?(self)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        delegate?.popupDialogDidDisappear(self)
+        delegate?.popupDialogDidDisappear?(self)
     }
 
     deinit {
-        delegate?.popupDialogCompleted(self)
+        delegate?.popupDialogCompleted?(self)
         delegate = nil
     }
 
