@@ -349,3 +349,13 @@ extension PopupDialog {
         popupContainerView.pv_shake()
     }
 }
+
+// MARK: - Show
+
+extension PopupDialog {
+    
+    /// Present dialog by root view controller
+    @objc public func show(animated: Bool = true, completion: (() -> Void)? = nil) {
+        UIApplication.shared.keyWindow!.rootViewController!.present(self, animated: animated, completion: completion)
+    }
+}
