@@ -31,6 +31,17 @@ import UIKit
 /// Represents the default button for the popup dialog
 public final class DefaultButton: PopupDialogButton {}
 
+// MARK: Normal button
+
+/// Represents a normal button for the popup dialog
+public final class NormalButton: PopupDialogButton {
+
+    override public func setupView() {
+        defaultTitleColor = UIColor.black
+        super.setupView()
+    }
+}
+
 // MARK: Cancel button
 
 /// Represents a cancel button for the popup dialog
