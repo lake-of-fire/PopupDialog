@@ -48,7 +48,7 @@ public extension PopupDialogDefaultViewController {
     // MARK: Content
 
     /// The dialog image
-    public var image: UIImage? {
+    var image: UIImage? {
         get { return standardView.imageView.image }
         set {
             standardView.imageView.image = newValue
@@ -57,7 +57,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The title text of the dialog
-    public var titleText: String? {
+    var titleText: String? {
         get { return standardView.titleLabel.text }
         set {
             standardView.titleLabel.text = newValue
@@ -66,7 +66,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The message text of the dialog
-    public var messageText: String? {
+    var messageText: String? {
         get { return standardView.messageLabel.text }
         set {
             standardView.messageLabel.text = newValue
@@ -77,7 +77,7 @@ public extension PopupDialogDefaultViewController {
     // MARK: Appearance
 
     /// The font and size of the title label
-    @objc public dynamic var titleFont: UIFont {
+    @objc dynamic var titleFont: UIFont {
         get { return standardView.titleFont }
         set {
             standardView.titleFont = newValue
@@ -86,7 +86,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The color of the title label
-    @objc public dynamic var titleColor: UIColor? {
+    @objc dynamic var titleColor: UIColor? {
         get { return standardView.titleLabel.textColor }
         set {
             standardView.titleColor = newValue
@@ -95,7 +95,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The text alignment of the title label
-    @objc public dynamic var titleTextAlignment: NSTextAlignment {
+    @objc dynamic var titleTextAlignment: NSTextAlignment {
         get { return standardView.titleTextAlignment }
         set {
             standardView.titleTextAlignment = newValue
@@ -104,7 +104,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The font and size of the body label
-    @objc public dynamic var messageFont: UIFont {
+    @objc dynamic var messageFont: UIFont {
         get { return standardView.messageFont}
         set {
             standardView.messageFont = newValue
@@ -113,7 +113,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The color of the message label
-    @objc public dynamic var messageColor: UIColor? {
+    @objc dynamic var messageColor: UIColor? {
         get { return standardView.messageColor }
         set {
             standardView.messageColor = newValue
@@ -122,7 +122,7 @@ public extension PopupDialogDefaultViewController {
     }
 
     /// The text alignment of the message label
-    @objc public dynamic var messageTextAlignment: NSTextAlignment {
+    @objc dynamic var messageTextAlignment: NSTextAlignment {
         get { return standardView.messageTextAlignment }
         set {
             standardView.messageTextAlignment = newValue
@@ -130,7 +130,7 @@ public extension PopupDialogDefaultViewController {
         }
     }
     
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         standardView.imageHeightConstraint?.constant = standardView.imageView.pv_heightForImageView()
     }
