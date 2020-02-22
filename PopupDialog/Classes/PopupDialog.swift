@@ -303,6 +303,12 @@ final public class PopupDialog: UIViewController {
         button.buttonAction?()
     }
     
+    // MARK: - Interface Orientations related
+    
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return self.viewController.supportedInterfaceOrientations
+    }
+    
     // MARK: - StatusBar display related
     
     public override var prefersStatusBarHidden: Bool {
