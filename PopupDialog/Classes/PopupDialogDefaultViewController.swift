@@ -135,15 +135,15 @@ public extension PopupDialogDefaultViewController {
         standardView.imageHeightConstraint?.constant = standardView.imageView.pv_heightForImageView()
     }
     
-    public override var prefersStatusBarHidden: Bool {
+    override var prefersStatusBarHidden: Bool {
         return self.hideStatusBar
     }
     
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.statusBarStyle
     }
     
-    public override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
 }
