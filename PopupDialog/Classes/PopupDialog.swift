@@ -361,6 +361,7 @@ extension PopupDialog {
 extension PopupDialog {
     
     /// Present dialog by root view controller
+    /// Ref: https://developer.apple.com/forums/thread/695932
     @objc public func show(animated: Bool = true, completion: (() -> Void)? = nil) {
         (UIApplication.shared.delegate?.window)!!.rootViewController!.present(self, animated: animated, completion: completion)
     }
