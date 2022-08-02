@@ -360,18 +360,8 @@ extension PopupDialog {
 
 extension PopupDialog {
     
-    func getKeyWindow() -> UIWindow {
-        if #available(iOS 15.0, *) {
-            return ((UIApplication.shared.connectedScenes.first(where: {$0.isKind(of: UIWindowScene.self)}) as? UIWindowScene)?.windows.first(where: {$0.canBecomeKey}))!
-        } else if #available(iOS 13.0, *) {
-            return (UIApplication.shared.windows.first(where: { $0.isKeyWindow }))!
-        } else {
-            return UIApplication.shared.keyWindow!
-        }
-    }
-    
     /// Present dialog by root view controller
     @objc public func show(animated: Bool = true, completion: (() -> Void)? = nil) {
-        self.getKeyWindow().rootViewController!.present(self, animated: animated, completion: completion)
+        (UIApplication.shared.delegate?.window)!!.rootViewController!.present(self, animated: animated, completion: completion)
     }
 }
